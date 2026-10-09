@@ -515,7 +515,7 @@ async function bootstrap(){
     if(!r.ok) throw new Error("HTTP "+r.status);
     const j=await r.json(); rev=j.rev||0;
     const vacio=!rev || !j.data || !Object.keys(j.data).length;
-    if(vacio){ cloud="ok"; await push(true); }          // primera vez: subimos lo que haya aquí
+    if(vacio){ cloud="ok"; }                            // base vacía: se siembra con el primer cambio
     else { S=normalize(j.data); dirty=false; cloud="ok"; lastSync=new Date();
       try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
       renderAll(); }
