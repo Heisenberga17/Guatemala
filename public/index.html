@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guatemala · 16–28 nov 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF2F4; --surface:#FFFFFF; --tint:#FCE7EC; --ink:#2B1320; --muted:#7A5966; --line:#EFD3DB;
+  --thread:#C8305E; --wine:#6E1F45; --gold:#C98316;
+  --antigua:#C8305E; --volcan:#7A3E5C; --lago:#5650A6; --semuc:#24877C; --flores:#C9761B; --ciudad:#8A5FA0;
+  --rom:#C8305E; --rom-bg:#FCE3EA; --adv:#A8640B; --adv-bg:#FCEFD7; --rel:#6B5BB0; --rel-bg:#ECE8FA; --stay:#24877C; --stay-bg:#DDF2EE;
+  --ok:#1E8550; --ok-bg:#E1F4E8; --todo:#C8305E; --todo-bg:#FCE3EA; --pay:#9A6400; --pay-bg:#FCEFD7;
+  --serif:"Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --sans:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B0F17; --surface:#27161F; --tint:#331B28; --ink:#F8E7ED; --muted:#C4A2B1; --line:#43293A;
+    --thread:#FF6F98; --antigua:#FF6F98; --volcan:#D58BB0; --lago:#A7A2FF; --semuc:#5FD1C2; --flores:#F2AE52; --ciudad:#C9A0E0;
+    --rom:#FF8CAB; --rom-bg:#47192C; --adv:#F4BF62; --adv-bg:#3C2A10; --rel:#BDB2FF; --rel-bg:#2C2648; --stay:#68D6C7; --stay-bg:#14332F;
+    --ok:#6FD79A; --ok-bg:#16301F; --todo:#FF8CAB; --todo-bg:#47192C; --pay:#F4BF62; --pay-bg:#3C2A10;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B0F17; --surface:#27161F; --tint:#331B28; --ink:#F8E7ED; --muted:#C4A2B1; --line:#43293A;
+  --thread:#FF6F98; --antigua:#FF6F98; --volcan:#D58BB0; --lago:#A7A2FF; --semuc:#5FD1C2; --flores:#F2AE52; --ciudad:#C9A0E0;
+  --rom:#FF8CAB; --rom-bg:#47192C; --adv:#F4BF62; --adv-bg:#3C2A10; --rel:#BDB2FF; --rel-bg:#2C2648; --stay:#68D6C7; --stay-bg:#14332F;
+  --ok:#6FD79A; --ok-bg:#16301F; --todo:#FF8CAB; --todo-bg:#47192C; --pay:#F4BF62; --pay-bg:#3C2A10;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+[hidden]{display:none!important}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--thread);outline-offset:2px}
+
+/* ---------- Hero: dusk over the volcanoes ---------- */
+.hero{position:relative;overflow:hidden;color:#FFF5F8;min-height:clamp(440px,74vh,640px);display:flex;align-items:flex-end;isolation:isolate}
+.hero svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero .shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(32,8,30,.82) 0%,rgba(32,8,30,.45) 38%,rgba(32,8,30,0) 62%)}
+.hero .in{width:100%;max-width:940px;margin:0 auto;padding:0 22px 40px}
+.hero h1{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(3.4rem,11vw,7.2rem);line-height:.86;margin:0;letter-spacing:-.015em;text-shadow:0 2px 24px rgba(40,6,24,.35)}
+.hero p{margin:14px 0 0;max-width:46ch;font-size:1.06rem;color:#FFE3EC}
+.count{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px;font-size:.92rem;color:#FFD6E2}
+.count b{display:block;font-family:var(--serif);font-weight:600;font-size:2.5rem;line-height:1;color:#FFF}
+@media (prefers-reduced-motion:no-preference){
+  .sun{animation:sink 2.6s cubic-bezier(.2,.7,.2,1) both}
+  .glow{animation:bloom 2.6s ease-out both}
+  @keyframes sink{from{transform:translateY(-70px)}to{transform:none}}
+  @keyframes bloom{from{opacity:0}to{opacity:1}}
+}
+
+.wrap{max-width:940px;margin:0 auto;padding:0 22px 72px}
+
+/* ---------- Route as woven thread ---------- */
+.route{margin:30px 0 6px;display:flex;height:40px;border-radius:999px;overflow:hidden}
+.route span{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.8rem;white-space:nowrap;overflow:hidden;padding:0 6px;
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.18) 0 5px,transparent 5px 10px),repeating-linear-gradient(45deg,rgba(0,0,0,.08) 0 5px,transparent 5px 10px)}
+.route span + span{border-left:2px solid var(--bg)}
+.route-legend{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem}
+
+/* ---------- Tabs ---------- */
+.tabs{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;gap:6px;padding:calc(env(safe-area-inset-top,0px) + 12px) 0 12px;margin-top:20px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{font:inherit;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 15px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{background:var(--wine);border-color:var(--wine);color:#FFF1F5}
+:root[data-theme="dark"] .tabs button[aria-selected="true"]{background:var(--thread);border-color:var(--thread);color:#2B0A18}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{background:var(--thread);border-color:var(--thread);color:#2B0A18}}
+.tabs .n{display:inline-block;margin-left:6px;background:var(--thread);color:#fff;border-radius:999px;font-size:.74rem;padding:0 7px}
+.tabs button[aria-selected="true"] .n{background:rgba(255,255,255,.25)}
+.tabs .theme{margin-left:auto;padding:9px 12px}
+
+/* ---------- Timeline with red thread ---------- */
+.region{margin-top:40px}
+.region h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,2.6rem);line-height:1;margin:0 0 4px;color:var(--c)}
+.region .sub{color:var(--muted);margin:0 0 6px;font-size:.95rem}
+.days{position:relative}
+.days::before{content:"";position:absolute;left:33px;top:0;bottom:0;width:2px;background:repeating-linear-gradient(to bottom,var(--thread) 0 10px,transparent 10px 15px);opacity:.55}
+.day{position:relative;display:grid;grid-template-columns:68px 1fr;gap:18px;padding:22px 0}
+.date{text-align:center;position:relative}
+.date b{display:block;font-family:var(--serif);font-weight:600;font-size:2.7rem;line-height:.9;color:var(--c);background:var(--bg);padding:2px 0}
+.date span{display:inline-block;font-size:.8rem;color:var(--muted);background:var(--bg);padding:0 4px}
+.date .knot{display:block;width:12px;height:12px;margin:8px auto 0;border-radius:50%;background:var(--thread);box-shadow:0 0 0 4px var(--bg)}
+.day h3{margin:4px 0 4px;font-size:1.18rem;font-weight:700;letter-spacing:-.005em}
+.day .full{display:inline-block;margin-left:8px;vertical-align:2px;font-size:.74rem;font-weight:600;color:var(--rom);background:var(--rom-bg);padding:2px 9px;border-radius:999px}
+.day > div > p{margin:0 0 10px;color:var(--muted);max-width:64ch}
+
+.items{display:flex;flex-direction:column;gap:6px}
+.item{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 13px}
+.item .what{flex:1 1 220px}
+.item .what a{font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.item .what em{display:block;font-style:normal;color:var(--muted);font-size:.86rem}
+.icon{width:22px;text-align:center;flex:none}
+.pill{font-size:.76rem;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.todo{background:var(--todo-bg);color:var(--todo)}
+.pill.pay{background:var(--pay-bg);color:var(--pay)}
+.price{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.86rem;white-space:nowrap}
+.ideas{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ideas li{font-size:.84rem;border:1px dashed var(--line);border-radius:999px;padding:3px 11px;color:var(--muted)}
+
+/* Plans for two */
+.plans{margin-top:16px;background:var(--tint);border-radius:18px;padding:16px 16px 14px}
+.plans h4{margin:0 0 2px;font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.45rem;line-height:1.1;color:var(--wine)}
+:root[data-theme="dark"] .plans h4{color:var(--rom)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .plans h4{color:var(--rom)}}
+.plans > p{margin:0 0 12px;color:var(--muted);font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:10px}
+.plan{position:relative;background:var(--surface);border-radius:14px;padding:13px 14px 12px;display:flex;flex-direction:column;gap:5px;border:1px solid transparent;transition:border-color .2s}
+.plan.fav{border-color:var(--thread)}
+.plan .top{display:flex;align-items:center;gap:8px}
+.plan .emo{font-size:1.25rem}
+.tag{font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.tag.rom{color:var(--rom);background:var(--rom-bg)}
+.tag.adv{color:var(--adv);background:var(--adv-bg)}
+.tag.rel{color:var(--rel);background:var(--rel-bg)}
+.tag.stay{color:var(--stay);background:var(--stay-bg)}
+.heart{margin-left:auto;font:inherit;border:0;background:transparent;cursor:pointer;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--muted)}
+.heart svg{width:22px;height:22px}
+.heart:hover{color:var(--thread)}
+.plan.fav .heart{color:var(--thread)}
+.plan.fav .heart path{fill:currentColor}
+@media (prefers-reduced-motion:no-preference){.plan.fav .heart svg{animation:pop .35s ease-out}@keyframes pop{50%{transform:scale(1.3)}}}
+.plan h5{margin:0;font-size:1rem;font-weight:700;line-height:1.3}
+.plan h5 a{text-decoration-thickness:1px;text-underline-offset:3px}
+.plan p{margin:0;color:var(--muted);font-size:.87rem;line-height:1.45}
+.plan .price{margin-top:auto;padding-top:4px;color:var(--ink);font-weight:600;font-size:.84rem}
+.pick{font-size:.72rem;font-weight:700;color:#fff;background:var(--thread);border-radius:999px;padding:2px 9px;white-space:nowrap}
+
+/* ---------- Favorites view ---------- */
+.empty{margin-top:34px;background:var(--tint);border-radius:18px;padding:26px;text-align:center}
+.empty p{margin:6px 0 0;color:var(--muted)}
+.empty b{font-family:var(--serif);font-style:italic;font-size:1.8rem;font-weight:600}
+.favday{margin-top:28px}
+.favday h3{margin:0 0 10px;font-family:var(--serif);font-weight:600;font-size:1.6rem;color:var(--c)}
+
+/* ---------- Pending view ---------- */
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:28px}
+.summary div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.summary b{display:block;font-family:var(--serif);font-weight:600;font-size:2.5rem;line-height:1}
+.summary span{color:var(--muted);font-size:.88rem}
+.group{margin-top:36px}
+.group h2{font-family:var(--serif);font-weight:600;font-size:1.8rem;margin:0 0 2px}
+.group > p{margin:0 0 14px;color:var(--muted)}
+.task{display:grid;grid-template-columns:28px 62px 1fr auto;gap:12px;align-items:start;padding:14px;border:1px solid var(--line);border-left:5px solid var(--c);background:var(--surface);border-radius:12px;margin-bottom:10px;cursor:pointer}
+.task input{width:22px;height:22px;margin-top:3px;accent-color:var(--thread);cursor:pointer}
+.task .d{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1;color:var(--c)}
+.task .d small{display:block;font-family:var(--sans);font-size:.74rem;font-weight:400;color:var(--muted);margin-top:3px}
+.task h3{margin:0;font-size:1.02rem}
+.task p{margin:4px 0 0;color:var(--muted);font-size:.9rem;max-width:60ch}
+.task a.go{display:inline-block;margin-top:8px;font-weight:600;font-size:.86rem;background:var(--wine);color:#FFF1F5;text-decoration:none;padding:6px 13px;border-radius:999px}
+.task.done{opacity:.55}
+.task.done h3{text-decoration:line-through}
+.task .price{text-align:right}
+.tips{margin-top:36px;background:var(--tint);border-radius:18px;padding:18px 20px}
+.tips h2{margin:0 0 8px;font-family:var(--serif);font-weight:600;font-size:1.6rem}
+.tips ul{margin:0;padding-left:20px;color:var(--muted)}
+.tips li{margin:5px 0}
+
+footer{margin-top:64px;text-align:center}
+footer p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.2rem,7vw,3.2rem);margin:0;color:var(--thread);line-height:1}
+footer small{display:block;margin-top:12px;color:var(--muted)}
+
+@media (max-width:600px){
+  .day{grid-template-columns:52px 1fr;gap:12px}
+  .days::before{left:25px}
+  .date b{font-size:2.2rem}
+  .task{grid-template-columns:26px 1fr}
+  .task .d{grid-column:2}
+  .task .body{grid-column:1 / -1}
+  .task .price{grid-column:1 / -1;text-align:left}
+  .route span{font-size:.66rem}
+  .route span.sm{font-size:0}
+  .plans{margin-left:-6px;margin-right:-6px;padding:14px 12px}
+  .addplan input,.addplan select,.addplan button{flex:1 1 100%}
+}
+/* editing */
+.del{display:none}
+body.editing .del{display:grid}
+.addplan{display:none}
+body.editing .addplan{display:flex}
+body.editing .ed:hover{outline:1px dashed var(--line);outline-offset:3px;border-radius:4px}
+body.editing .ed:focus{outline:2px solid var(--thread);outline-offset:3px;border-radius:4px}
+body.editing [data-cycle]{cursor:pointer}
+body.editing .ed:empty::before{content:"Escribe aquí…";color:var(--muted);opacity:.7}
+body.editing .plan .top,body.editing .item{flex-wrap:wrap}
+.savebar .hint{flex:1 1 100%;order:-1;color:var(--muted);font-size:.82rem;margin:0}
+.del{border:0;background:transparent;color:var(--muted);cursor:pointer;width:30px;height:30px;border-radius:50%;font-size:1.15rem;line-height:1;place-items:center;padding:0;flex:none}
+.del:hover,.del:focus-visible{background:var(--tint);color:var(--thread)}
+.plan .top .heart{margin-left:auto}
+.plan.mine{border-style:dashed;border-color:var(--line)}
+.addplan{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.addplan input,.addplan select{flex:1 1 170px;min-width:0;font:inherit;font-size:.86rem;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.addplan input::placeholder{color:var(--muted)}
+.addplan button{font:inherit;font-size:.86rem;font-weight:600;padding:9px 16px;border:0;border-radius:10px;background:var(--thread);color:#fff;cursor:pointer}
+.addplan .undo{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+.savebar{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0 0;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.savebar .state{color:var(--muted);font-size:.85rem;margin-right:auto}
+.savebar .state.dirty{color:var(--thread);font-weight:600}
+.savebar button{font:inherit;font-size:.86rem;font-weight:600;padding:9px 16px;border:0;border-radius:10px;background:var(--thread);color:#fff;cursor:pointer}
+.savebar button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+</style>
+<script id="guardado" type="application/json">{}</script>
+</head>
+<body>
+
+<header class="hero">
+  <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2A0F33"/>
+        <stop offset=".38" stop-color="#6E1F55"/>
+        <stop offset=".66" stop-color="#D2486E"/>
+        <stop offset=".86" stop-color="#F59A6B"/>
+        <stop offset="1" stop-color="#FBC77B"/>
+      </linearGradient>
+      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#A33A63"/>
+        <stop offset=".5" stop-color="#5A1F4A"/>
+        <stop offset="1" stop-color="#26102A"/>
+      </linearGradient>
+      <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#FFE2A8" stop-opacity=".9"/>
+        <stop offset="1" stop-color="#FFE2A8" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="600" fill="url(#sky)"/>
+    <g fill="#FFE9F1" opacity=".75">
+      <circle cx="90" cy="60" r="1.6"/><circle cx="240" cy="110" r="1.2"/><circle cx="420" cy="48" r="1.4"/><circle cx="610" cy="90" r="1"/><circle cx="780" cy="40" r="1.5"/><circle cx="960" cy="100" r="1.1"/><circle cx="1110" cy="56" r="1.6"/><circle cx="330" cy="170" r="1"/><circle cx="1040" cy="180" r="1"/>
+    </g>
+    <circle cx="1010" cy="120" r="26" fill="#FFF3E6" opacity=".92"/>
+    <circle cx="1021" cy="112" r="24" fill="#3A1238" opacity=".95"/>
+    <g class="glow"><circle cx="640" cy="400" r="230" fill="url(#halo)"/></g>
+    <g class="sun"><circle cx="640" cy="404" r="62" fill="#FFD48A"/></g>
+    <!-- Fuego smoke -->
+    <path d="M318 262c-10-18 6-30 20-24 4-16 26-18 32-4 16-6 30 8 22 22" fill="none" stroke="#F7C9D6" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+    <!-- volcanoes, back to front -->
+    <path d="M0 430 L120 380 L230 330 L300 268 L335 262 L360 274 L470 352 L560 400 L640 420 L760 396 L860 330 L930 286 L960 284 L995 306 L1080 360 L1200 392 L1200 470 L0 470Z" fill="#6A2450" opacity=".85"/>
+    <path d="M0 450 L80 430 L190 400 L260 396 L380 418 L470 440 L560 444 L700 430 L820 408 L900 412 L1010 432 L1200 446 L1200 480 L0 480Z" fill="#3E1438"/>
+    <!-- lake -->
+    <rect y="470" width="1200" height="130" fill="url(#lake)"/>
+    <g stroke="#FFD48A" stroke-linecap="round" opacity=".8">
+      <line x1="590" y1="490" x2="690" y2="490" stroke-width="4"/>
+      <line x1="605" y1="506" x2="675" y2="506" stroke-width="3"/>
+      <line x1="620" y1="522" x2="660" y2="522" stroke-width="2.5"/>
+      <line x1="630" y1="538" x2="650" y2="538" stroke-width="2"/>
+    </g>
+    <g stroke="#F59AB4" stroke-linecap="round" opacity=".35" stroke-width="2">
+      <line x1="140" y1="500" x2="230" y2="500"/><line x1="880" y1="514" x2="990" y2="514"/><line x1="320" y1="540" x2="380" y2="540"/><line x1="1040" y1="552" x2="1100" y2="552"/>
+    </g>
+  </svg>
+  <div class="shade"></div>
+  <div class="in">
+    <h1>Guatemala</h1>
+    <p>Del 16 al 28 de noviembre: Antigua, el Acatenango, el lago de Atitlán, Semuc Champey y Flores. Trece días, cinco destinos.</p>
+    <div class="count" id="countdown"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="route" id="route" aria-label="Ruta del viaje por noches"></div>
+  <div class="route-legend"><span>16 nov</span><span>28 nov</span></div>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="t1" aria-selected="true" aria-controls="p1">El viaje</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Favoritos <span class="n" id="favCount">0</span></button>
+    <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Lo que falta <span class="n" id="pendCount"></span></button>
+    <button class="theme" id="themeBtn" aria-label="Cambiar entre modo claro y oscuro">◐</button>
+  </nav>
+
+  <section id="p1" role="tabpanel" aria-labelledby="t1"></section>
+  <section id="p2" role="tabpanel" aria-labelledby="t2" hidden></section>
+  <section id="p3" role="tabpanel" aria-labelledby="t3" hidden></section>
+
+  <div class="savebar">
+    <p class="hint" id="editHint" hidden>Modo edición: toca cualquier texto para cambiarlo, × para borrar, 🔗 para cambiar el enlace, y el tipo o el estado para cambiarlos. Abajo de cada día puedes agregar pegando un enlace.</p>
+    <span class="state" id="saveState">Todo guardado</span>
+    <button type="button" class="ghost" id="restoreBtn" hidden>Restaurar borrados</button>
+    <button type="button" class="ghost" id="resetBtn">Empezar de cero</button>
+    <button type="button" class="ghost" id="downloadBtn">Descargar copia</button>
+    <button type="button" class="ghost" id="editBtn" aria-pressed="false">Editar</button>
+    <button type="button" id="saveBtn">Guardar ahora</button>
+  </div>
+
+  <footer>
+    <small>Precios de la hoja de detalles en USD para los dos. Los planes nuevos son estimados de octubre 2026: confirmen antes de ir.</small>
+  </footer>
+</div>
+
+<script>
+const L = {
+  capirucho:"https://www.booking.com/hotel/gt/casa-capirucho.html?label=gen173bo-10CAsoXkIOY2FzYS1jYXBpcnVjaG9IMVgDaLABiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBmAIEqAIBuALWh8DTBsACAdICJGZjOThmMjAyLTFkYTYtNDJlNy05ODM1LTA5NmNkYTM3NTc2YtgCAeACAQ&sid=479c1b355f6dc4089ba9b282e2a61d47&dist=0&group_adults=2&sb_price_type=total&type=total&",
+  socialtel:"https://www.booking.com/hotel/gt/socialtel-antigua.html?aid=2311236&sid=479c1b355f6dc4089ba9b282e2a61d47&apif=1&",
+  tropicana:"https://tropicanahostel.com/product/acatenango-hike/",
+  guatego:"https://guatego.com/strip.php?type=one&from=Antigua+Guatemala%2C+Sacatepequez+Guatemala&fromId=4&to=Atitl%C3%A1n+Lake+%28Lago%29%2C+Atitl%C3%A1n%2C+Guatemala&toId=62&tickets=2&datestart=Thu+19+Nov+26",
+  amigos:"https://www.booking.com/hotel/gt/amigos.html?label=gen173bo-10CAsoXkIGYW1pZ29zSDFYA2iwAYgBAZgBM7gBB8gBDNgBA-gBAfgBAYgCAZgCBKgCAbgCxey_0wbAAgHSAiQzN2Q0NTBmZC05MzY5LTQ0MWQtYTZhNy1jNjBiODU5YTAwZTnYAgHgAgE&sid=479c1b355f6dc4089ba9b282e2a61d47&dist=0&group_adults=2&sb_price_type=total&type=total&",
+  nightSemuc:"https://www.bookaway.com/s/guatemala/san-pedro-la-laguna-to-lanquin-1?suppliers=6040c87d108f6a0001265603&departuredate=2026-11-22&adult=2&source=supplier_page",
+  pachamaya:"https://www.booking.com/hotel/gt/pachamaya-eco-lodge.html?label=gen173bo-10CAsoXkITcGFjaGFtYXlhLWVjby1sb2RnZUgxWANosAGIAQGYATO4AQfIAQzYAQPoAQH4AQGIAgGYAgSoAgG4AqOIwNMGwAIB0gIkODc5MzA0ODQtODIxOC00YjQ2LTg2MmEtZmNkNWI3ZmRhZWU02AIB4AIB&sid=479c1b355f6dc4089ba9b282e2a61d47&dist=0&group_adults=2&sb_price_type=total&type=total&",
+  flores:"https://www.bookaway.com/s/guatemala/lanquin-1-to-flores-1?departuredate=2026-11-25&adult=2",
+  airbnb:"https://www.airbnb.com/trips/v1/1743233753973891574/ro/RESERVATION2_CHECKIN/HM54WMBYFJ",
+  busGuate:"https://www.bookaway.com/routes/guatemala/flores-1-to-guatemala-city/first-floor-bus-by-kahk-bahlam-29?departuredate=2026-11-27&fromstation=transportes-fuente-del-norte-santa-elena-flores&tostation=transportes-fuente-del-norte-zona-1&adult=2&departuretime=0700PM",
+  lagoStay:"https://www.booking.com/searchresults.html?ss=San+Pedro+La+Laguna&checkin=2026-11-19&checkout=2026-11-21&group_adults=2&no_rooms=1",
+  tikal:"https://adrenalinatours.com/product/tikal-sunrise-tour/",
+  tikalTickets:"https://boletos.culturaguate.com",
+  yaxha:"https://adrenalinatours.com/product/yaxha-tour/",
+  semucTour:"https://adrenalinatours.com/product/semuc-champey-lanquin-caves/",
+  nariz:"https://atitlanvida.com/blog/indian-nose-sunrise-hike-guide/",
+  aeropuerto:"https://guatego.com/Guatemala/La_Aurora-to-Antigua_Guatemala/"
+};
+
+Object.assign(L,{
+  airbnbLago1:"https://www.airbnb.com.pa/rooms/1106628479300562115?adults=2&check_in=2026-11-19&check_out=2026-11-21",
+  airbnbLago2:"https://www.airbnb.com.pa/rooms/1480498140248814628?adults=2&check_in=2026-11-19&check_out=2026-11-21",
+  fortuna:"https://www.airbnb.co.uk/hotels/774362",
+  parapente:"https://livinginguatemala.com/activities/lake-atitlan-paragliding/",
+  kayak:"https://livinginguatemala.com/activities/kayaking-lake-atitlan/"
+});
+const M=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const BK=(q,ci,co)=>`https://www.booking.com/searchresults.html?ss=${encodeURIComponent(q)}&checkin=${ci}&checkout=${co}&group_adults=2&no_rooms=1`;
+
+const R = {
+  antigua:{name:"Antigua",c:"var(--antigua)"},
+  volcan:{name:"Acatenango",c:"var(--volcan)"},
+  lago:{name:"Lago Atitlán",c:"var(--lago)"},
+  semuc:{name:"Semuc Champey",c:"var(--semuc)"},
+  flores:{name:"Flores y Tikal",c:"var(--flores)"},
+  ciudad:{name:"Ciudad de Guatemala",c:"var(--ciudad)"}
+};
+const TAG={rom:"Romántico",adv:"Aventura",rel:"Relax",stay:"Para dormir"};
+
+// status: ok = reservado y pagado, pay = reservado, falta pagar, todo = falta reservar
+// plans: t = rom | adv | rel | stay ; pick = recomendado
+const DAYS = [
+ {r:"antigua",d:16,w:"lun",full:true,t:"Llegada y día en Antigua",p:"Día completo en Antigua, pero mañana toca volcán: planes suaves, buena cena y a dormir temprano.",
+  items:[
+   {i:"🚐",n:"Traslado aeropuerto → Antigua",note:"Depende de la hora del vuelo. Shuttle US$16–25 por persona; si llegan tarde, mejor privado.",s:"todo",u:L.aeropuerto,price:"~US$40 los dos"},
+   {i:"🛏️",n:"Casa Capirucho",note:"Noche 16 → 17",s:"pay",u:L.capirucho,price:"US$43"}],
+  plans:[
+   {e:"🌄",t:"rom",pick:1,n:"Atardecer en el Cerro de la Cruz",d:"La vista clásica de Antigua con el Volcán de Agua detrás. Suban en tuk-tuk y bajen caminando cuando se ponga rosa el cielo.",price:"Gratis",u:M("Cerro de la Cruz Antigua Guatemala")},
+   {e:"🍷",t:"rom",n:"Cena en una terraza con vista al volcán",d:"Reserven mesa en un rooftop cerca del Arco de Santa Catalina para la hora azul. Café Sky es la terraza más conocida.",price:"~US$40–60 los dos",u:M("Café Sky Antigua Guatemala")},
+   {e:"🍫",t:"adv",n:"Taller de chocolate",d:"Del grano a la tableta: tuestan, muelen y se llevan su propio chocolate. Ideal si llueve.",price:"~US$25–35 c/u",u:M("ChocoMuseo Antigua Guatemala")},
+   {e:"🕯️",t:"rom",n:"Paseo nocturno y Casa Santo Domingo",d:"Antigua de noche, sin gente: el Arco iluminado y luego los jardines y ruinas con velas de Casa Santo Domingo.",price:"Gratis",u:M("Hotel Casa Santo Domingo Antigua")},
+   {e:"🎠",t:"adv",n:"Hobbitenango o Earth Lodge",d:"Columpios gigantes sobre el valle y vistas a los volcanes. Solo si llegan temprano: 30–45 min en subida.",price:"Q50 c/u (Hobbitenango)",u:M("Hobbitenango Antigua")}
+  ]},
+ {r:"volcan",d:17,w:"mar",t:"Subida al Acatenango",p:"Salida en la mañana y subida al campamento base (~3.600 m). Por la noche, el Fuego erupcionando enfrente.",
+  items:[{i:"🌋",n:"Tour Acatenango con Tropicana",note:"Incluye transporte, guía, equipo, comidas y entrada. Noche en el volcán.",s:"todo",u:L.tropicana,price:"desde US$90 c/u"}],
+  ideas:["Ropa térmica, guantes y gorro","3 l de agua por persona","Frontal con pilas extra"]},
+ {r:"volcan",d:18,w:"mié",t:"Cumbre al amanecer y regreso",p:"Cumbre al amanecer, bajada y regreso a Antigua a mediodía. Tarde de recuperación.",
+  items:[{i:"🛏️",n:"Socialtel Antigua",note:"Noche 18 → 19",s:"ok",u:L.socialtel,price:"US$61.74"}],
+  ideas:["Ducha larga y siesta","Masaje en pareja","Café de especialidad"]},
+ {r:"lago",d:19,w:"jue",t:"Antigua → Lago Atitlán",p:"Mañana en Antigua y shuttle al lago (~4 h). Estas dos noches siguen sin cama: aquí están las opciones.",
+  items:[
+   {i:"🚐",n:"Shuttle Antigua → Atitlán (GuateGo)",note:"Para 2 personas el 19 de noviembre. Si eligen La Fortuna, el shuttle va a Panajachel.",s:"todo",u:L.guatego,price:"US$50"},
+   {i:"🛏️",n:"Alojamiento en el lago, 2 noches",note:"Noches 19 → 21. Elijan una de las opciones de abajo y márquenla con el corazón.",s:"todo",u:"#d19",price:"por definir"}],
+  plansTitle:"Dónde dormir en el lago (19 → 21)",
+  plansNote:"Las dos primeras son las de su lista. El 21 duermen en Los Amigos (San Pedro), así que algo en el lado oeste ahorra lanchas.",
+  plans:[
+   {e:"🏡",t:"stay",n:"Airbnb opción 1 (su lista)",d:"La primera que guardaron para el 19–21. Revisen si tiene vista al lago y acceso fácil a lanchas.",price:"Ver precio en Airbnb",u:L.airbnbLago1},
+   {e:"🏡",t:"stay",n:"Airbnb opción 2 (su lista)",d:"La segunda opción guardada. Comparen ubicación: San Pedro y San Juan quedan cerca de Los Amigos.",price:"Ver precio en Airbnb",u:L.airbnbLago2},
+   {e:"🛁",t:"rom",pick:1,n:"La Fortuna at Atitlán: bungalow con tina",d:"Bungalows estilo balinés en una bahía privada. Las suites tienen cama king y baño de jardín con tina al aire libre. Queda a 5 min en lancha de Panajachel: perfecto para el parapente.",price:"Suites desde US$149/noche · bungalow US$99",u:L.fortuna},
+   {e:"🌊",t:"rom",n:"Casa Prana, Santa Cruz La Laguna",d:"Hotel pequeño con piscina de agua salada; la suite de lujo tiene tina con vista al lago.",price:"Ver precio",u:BK("Casa Prana Santa Cruz La Laguna","2026-11-19","2026-11-21")},
+   {e:"🌿",t:"stay",n:"Opciones en San Juan La Laguna",d:"Más tranquilo y bonito que San Pedro, a 10 min caminando de Los Amigos. Buen punto medio de precio.",price:"Ver precios",u:BK("San Juan La Laguna","2026-11-19","2026-11-21")}
+  ]},
+ {r:"lago",d:20,w:"vie",full:true,t:"Día completo en el lago: aventura",p:"Amanecer arriba, adrenalina a media mañana y la tarde en el agua. Lo mejor del lago es antes del mediodía: después sopla el viento.",
+  items:[{i:"🌅",n:"Amanecer en la Nariz del Indio",note:"Salida 3:30–4:30 desde San Pedro, con guía.",s:"todo",u:L.nariz,price:"Q100–150 c/u"}],
+  plans:[
+   {e:"🪂",t:"adv",pick:1,n:"Parapente en tándem sobre el lago",d:"Despegan sobre Panajachel y vuelan 15–30 min con los tres volcanes enfrente. Se vuela en la mañana; si hay viento, se reprograma.",price:"Q650–800 c/u (~US$85–105)",u:L.parapente},
+   {e:"🚣",t:"rom",n:"Kayak doble por la mañana",d:"El lago está como espejo antes de las 11. Remen hasta una caleta y métanse al agua.",price:"~US$20/h el doble",u:L.kayak},
+   {e:"🤸",t:"adv",n:"Salto desde Cerro Tzankujil",d:"La plataforma de clavados de San Marcos: unos 10 m sobre agua cristalina.",price:"Entrada pequeña (~Q20 c/u)",u:M("Cerro Tzankujil San Marcos La Laguna")},
+   {e:"♨️",t:"rel",n:"Temazcal o masaje en San Marcos",d:"San Marcos es el pueblo zen del lago: temazcal maya, masajes y ceremonias de cacao.",price:"Varía; pregunten allá",u:M("temazcal San Marcos La Laguna")},
+   {e:"⛵",t:"rom",n:"Lancha privada al atardecer",d:"Negocien una lancha solo para ustedes una hora antes del atardecer. Lleven algo para brindar.",price:"~Q300–500, negociable",u:M("muelle San Pedro La Laguna")}
+  ]},
+ {r:"lago",d:21,w:"sáb",full:true,t:"Día completo en el lago: pueblos y sabores",p:"Ruta en lancha por los pueblos, almuerzo largo con vista y cambio a Los Amigos.",
+  items:[{i:"🛏️",n:"Los Amigos, San Pedro La Laguna",note:"Noche 21 → 22",s:"pay",u:L.amigos,price:"US$48"}],
+  plans:[
+   {e:"🍽️",t:"rom",pick:1,n:"Almuerzo en Casa del Mundo, Jaibalito",d:"Terrazas colgadas sobre el agua. Coman despacio y luego métanse al lago.",price:"~US$30–50 los dos",u:M("Casa del Mundo Jaibalito")},
+   {e:"🎨",t:"adv",n:"San Juan La Laguna: murales y cacao",d:"Calles pintadas, cooperativas de mujeres tejedoras y degustaciones de cacao, miel y café.",price:"Gratis para pasear",u:M("San Juan La Laguna")},
+   {e:"☕",t:"adv",n:"Tour de café del grano a la taza",d:"Recorren la finca, tuestan y preparan su propio café con una cooperativa de San Juan.",price:"~Q100–150 c/u",u:M("tour de café San Juan La Laguna")},
+   {e:"🌅",t:"rom",n:"Atardecer en el muelle de San Pedro",d:"Cerveza o michelada sentados en el muelle mientras el sol baja detrás del volcán.",price:"Lo que tomen",u:M("muelle San Pedro La Laguna")}
+  ],
+  ideas:["Lanchas Q10–35 por trayecto","Sacar efectivo en San Pedro"]},
+ {r:"lago",d:22,w:"dom",full:true,t:"Último día en el lago y shuttle nocturno",p:"Día suave, sin caminatas largas. Cenar temprano y al punto de salida del shuttle.",
+  items:[{i:"🌙",n:"Night shuttle San Pedro → Lanquín",note:"Sale de noche (~19:45), unas 10 h de viaje.",s:"pay",u:L.nightSemuc,price:"US$100"}],
+  plans:[
+   {e:"🌈",t:"rom",pick:1,n:"Mirador Kaqasiiwaan, San Juan",d:"Escaleras de colores y un mirador sobre todo el lago.",price:"~Q50 c/u",u:M("Mirador Kaqasiiwaan San Juan La Laguna")},
+   {e:"🧶",t:"adv",n:"Taller de tejido con una cooperativa",d:"Aprenden a teñir con tintes naturales y tejen algo pequeño.",price:"~Q150–250 c/u",u:M("cooperativa de tejidos San Juan La Laguna")},
+   {e:"🥞",t:"rel",n:"Desayuno largo con vista y siesta",d:"Antes de 10 h de bus nocturno, una mañana sin prisa es el mejor plan.",price:"~US$15–25 los dos",u:M("desayuno vista al lago San Pedro La Laguna")}
+  ],
+  ideas:["Sacar ~Q3.000 en efectivo para Semuc","Snacks y almohada de viaje"]},
+ {r:"semuc",d:23,w:"lun",full:true,t:"Llegada a Semuc",p:"Llegada a Lanquín ~5:30–6:00. Desayuno, siesta y río. Hoy es día de recuperar.",
+  items:[{i:"🛏️",n:"Pachamaya River Hostel",note:"Noches 23 → 25. Confirmar recogida en Lanquín por WhatsApp y si es solo efectivo.",s:"pay",u:L.pachamaya,price:"US$60"}],
+  plans:[
+   {e:"🛟",t:"adv",pick:1,n:"Tubing por el río Cahabón",d:"Se dejan llevar en neumático por la selva. Pregunten en el hostal: suele salir desde ahí.",price:"~Q50–75 c/u",u:M("tubing río Cahabón Lanquín")},
+   {e:"🦇",t:"adv",n:"Cuevas de Lanquín al anochecer",d:"Entran antes de que oscurezca y salen viendo miles de murciélagos volar sobre el río.",price:"~Q30–50 c/u",u:M("Grutas de Lanquín")},
+   {e:"🍫",t:"rom",n:"Tour de cacao con una familia q'eqchi'",d:"Ven el cacao en el árbol, lo tuestan en comal y lo toman caliente. Muchos hostales lo organizan.",price:"Pregunten en Pachamaya",u:M("cacao tour Lanquín")},
+   {e:"🌿",t:"rel",n:"Hamaca frente al río",d:"Después del bus nocturno, una hamaca y el sonido del río.",price:"Gratis",u:L.pachamaya}
+  ]},
+ {r:"semuc",d:24,w:"mar",full:true,t:"El gran día en Semuc",p:"Mirador temprano, pozas turquesa y cueva con velas.",
+  items:[{i:"🏞️",n:"Semuc Champey + cueva K'an Ba",note:"Por su cuenta (~Q110 de entradas en efectivo) o en tour.",s:"todo",u:L.semucTour,price:"US$38–65 c/u"}],
+  plans:[
+   {e:"⛰️",t:"rom",pick:1,n:"Mirador antes que los grupos",d:"Suban a las 8: las pozas turquesa desde arriba, casi solos. La subida es de 30–45 min.",price:"Incluido en la entrada",u:M("Mirador Semuc Champey")},
+   {e:"🕯️",t:"adv",n:"Cueva K'an Ba con velas",d:"Nadan dentro de la cueva iluminados solo con velas.",price:"Incluido en el tour",u:M("Cueva K'anba Semuc Champey")},
+   {e:"🪢",t:"adv",n:"Columpio de cuerda al río",d:"Al salir de la cueva, columpio directo al Cahabón y salto desde el puente.",price:"Incluido en el tour",u:M("K'anba cave rope swing Semuc")},
+   {e:"💧",t:"rom",n:"Las pozas al final de la tarde",d:"A eso de las 15:00 se van los tours: vuelvan a las pozas para nadar con más calma.",price:"Incluido",u:M("Semuc Champey pozas")}
+  ]},
+ {r:"flores",d:25,w:"mié",t:"Lanquín → Flores",p:"Shuttle de las 8:00, llegada entre 15:00 y 17:00. Directo al atardecer.",
+  items:[
+   {i:"🚐",n:"Shuttle Lanquín → Flores",note:"Para 2 personas el 25 de noviembre (Bookaway)",s:"todo",u:L.flores,price:"US$60"},
+   {i:"🏠",n:"Airbnb en Flores",note:"Noches 25 → 27",s:"pay",u:L.airbnb,price:"US$77.37"}],
+  ideas:["Atardecer en el malecón oeste de la isla","Cena frente al lago Petén Itzá"]},
+ {r:"flores",d:26,w:"jue",full:true,t:"Lago y Yaxhá al atardecer",p:"Mañana de lago y tarde en Yaxhá: probablemente el mejor atardecer del viaje.",
+  items:[{i:"🌇",n:"Tour Yaxhá al atardecer",note:"Sale 12:00, vuelve 19:00–20:00. Entrada Q80 aparte, en efectivo.",s:"todo",u:L.yaxha,price:"US$35 c/u"}],
+  plans:[
+   {e:"🌊",t:"adv",pick:1,n:"Jorge's Rope Swing",d:"Columpio de cuerda al lago Petén Itzá, hamacas y agua tibia. Se llega en lancha.",price:"Q25 c/u + lancha",u:M("Jorge's Rope Swing Flores Guatemala")},
+   {e:"🚣",t:"rom",n:"Kayak alrededor de la isla",d:"Rodean Flores remando temprano, cuando el lago está quieto.",price:"~Q50–80 por hora",u:M("kayak rental Flores Petén")},
+   {e:"🛕",t:"rom",n:"Alternativa: atardecer en Tikal",d:"Si prefieren Tikal dos veces, el tour de atardecer sube al Templo IV mientras la selva se despierta.",price:"Ver precio del tour",u:M("Tikal Templo IV")},
+   {e:"🏮",t:"rom",n:"Cena en una terraza del lado oeste",d:"Al volver de Yaxhá, cena tarde en una terraza de la isla con vista al agua.",price:"~US$30–50 los dos",u:M("rooftop restaurant Isla de Flores")}
+  ]},
+ {r:"flores",d:27,w:"vie",full:true,t:"Tikal al amanecer y bus nocturno",p:"Salida 3:00 a Tikal, regreso a mediodía. El Airbnb termina hoy: pidan late check-out para ducharse antes del bus.",
+  items:[
+   {i:"🛕",n:"Tikal al amanecer",note:"Guía obligatorio. Tour todo incluido, o entradas Q150 + Q100 amanecer en boletos.culturaguate.com.",s:"todo",u:L.tikal,price:"US$80 c/u"},
+   {i:"🚌",n:"Bus nocturno Flores → Ciudad de Guatemala",note:"Sale 19:00 de la terminal Fuente del Norte en Santa Elena, llega a Zona 1.",s:"todo",u:L.busGuate,price:"US$124"}],
+  plans:[
+   {e:"🌉",t:"adv",n:"Ixpanpajul: puentes colgantes y canopy",d:"A 15 min de Flores: caminan sobre la copa de la selva por puentes colgantes. Solo si les quedan energías.",price:"Ver precio del tour",u:M("Parque Natural Ixpanpajul")},
+   {e:"🌅",t:"rom",pick:1,n:"Despedida en lancha al atardecer",d:"Una vuelta por el lago antes del bus, el último atardecer del viaje.",price:"~Q150–300, negociable",u:M("muelle Isla de Flores")},
+   {e:"🛌",t:"rel",n:"Siesta y late check-out",d:"Después de levantarse a las 3, la siesta es parte del plan. Pidan quedarse hasta media tarde.",price:"Pregunten al anfitrión",u:L.airbnb}
+  ],
+  ideas:["Cena ligera antes del bus"]},
+ {r:"ciudad",d:28,w:"sáb",t:"Llegada a Ciudad de Guatemala",p:"Llegada ~5:00–6:00 a la Zona 1. Pidan Uber desde dentro de la terminal y no caminen con las mochilas.",
+  items:[],ideas:["Desayuno y al aeropuerto o siguiente plan"]}
+];
+
+const STATUS = {ok:"Reservado y pagado",pay:"Reservado, falta pagar",todo:"Falta reservar"};
+const ORDER = ["todo","pay","ok"], TORDER=["rom","adv","rel","stay"];
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+/* ---------- estado guardado ---------- */
+const KEY="gt-guatemala-v2";
+const SAVED=(()=>{try{return JSON.parse(document.getElementById("guardado").textContent||"{}")}catch(e){return{}}})();
+function blank(){return{edits:{},hidden:{},custom:{},favs:{},done:{}}}
+let S=(function(){
+  let ls=null; try{ls=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){}
+  const src=ls||SAVED||{}, s=blank();
+  ["edits","hidden","custom","favs","done"].forEach(k=>{if(src[k]&&typeof src[k]==="object")s[k]=src[k]});
+  if(!ls){ // migrar favoritos y pendientes de la versión anterior
+    try{Object.assign(s.favs,JSON.parse(localStorage.getItem("gt-favs-v1")||"{}"))}catch(e){}
+    try{Object.assign(s.done,JSON.parse(localStorage.getItem("gt-viaje-hecho-v1")||"{}"))}catch(e){}
+  }
+  return s;
+})();
+let dirty=false, editing=false, rev=0, cloud="init", pushTimer=null, lastSync=null;
+const API="/api/state";
+let pin=(()=>{try{return localStorage.getItem("gt-pin")||""}catch(e){return ""}})();
+function normalize(o){const s=blank(); if(o&&typeof o==="object") ["edits","hidden","custom","favs","done"].forEach(k=>{if(o[k]&&typeof o[k]==="object")s[k]=o[k]}); return s}
+
+function persist(markDirty){
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+  if(markDirty!==false){dirty=true; queuePush()}
+  saveState();
+}
+function queuePush(){ if(cloud==="off")return; clearTimeout(pushTimer); pushTimer=setTimeout(()=>push(),1200) }
+
+async function push(force){
+  if(cloud==="off"){saveState();return}
+  clearTimeout(pushTimer);
+  const was=cloud; cloud="saving"; saveState();
+  try{
+    const h={"Content-Type":"application/json"}; if(pin)h["x-pin"]=pin;
+    const r=await fetch(API,{method:"PUT",headers:h,body:JSON.stringify({data:S,rev,force:!!force})});
+    if(r.status===501){cloud="off"; saveState(); return}
+    if(r.status===401){
+      const v=prompt("PIN para poder guardar los cambios:");
+      if(v){pin=v.trim(); try{localStorage.setItem("gt-pin",pin)}catch(e){} return push(force)}
+      cloud="denied"; saveState(); return;
+    }
+    if(r.status===409){
+      const srv=await r.json();
+      if(confirm("El plan cambió en otro dispositivo.\n\nAceptar: traer la versión más nueva (pierdes lo que acabas de escribir).\nCancelar: guardar lo tuyo encima.")){
+        S=normalize(srv.data); rev=srv.rev; dirty=false; cloud="ok"; lastSync=new Date();
+        try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+        renderAll(); return;
+      }
+      return push(true);
+    }
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const j=await r.json(); rev=j.rev; dirty=false; cloud="ok"; lastSync=new Date();
+  }catch(e){ cloud=was==="off"?"off":"offline" }
+  saveState();
+}
+
+async function pull(){
+  if(cloud==="off"||cloud==="init"||dirty||editing)return;
+  try{
+    const r=await fetch(API,{cache:"no-store"}); if(!r.ok)return;
+    const j=await r.json();
+    if((j.rev||0)>rev){
+      S=normalize(j.data); rev=j.rev; cloud="ok"; lastSync=new Date();
+      try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+      renderAll();
+    }
+  }catch(e){}
+}
+
+async function bootstrap(){
+  try{
+    const r=await fetch(API,{cache:"no-store"});
+    if(r.status===501){cloud="off"; saveState(); return}
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const j=await r.json(); rev=j.rev||0;
+    const vacio=!rev || !j.data || !Object.keys(j.data).length;
+    if(vacio){ cloud="ok"; await push(true); }          // primera vez: subimos lo que haya aquí
+    else { S=normalize(j.data); dirty=false; cloud="ok"; lastSync=new Date();
+      try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+      renderAll(); }
+  }catch(e){ cloud="offline" }
+  saveState();
+}
+
+function saveState(){
+  const n=Object.keys(S.hidden).length, el=document.getElementById("saveState");
+  const hora=lastSync?lastSync.toLocaleTimeString("es",{hour:"2-digit",minute:"2-digit"}):"";
+  const msg={
+    init:"Conectando…",
+    saving:"Guardando…",
+    ok:dirty?"Guardando…":"Guardado"+(hora?" · "+hora:""),
+    offline:"Sin conexión — guardado en este dispositivo",
+    off:"Guardado solo en este navegador",
+    denied:"PIN incorrecto — no se guardó en la nube"
+  };
+  el.className="state"+(cloud==="offline"||cloud==="denied"?" dirty":"");
+  el.textContent=msg[cloud]||"";
+  const rb=document.getElementById("restoreBtn");
+  rb.hidden=!n; rb.textContent="Restaurar borrados ("+n+")";
+}
+
+/* ---------- helpers de edición ---------- */
+const cssEsc=s=>(window.CSS&&CSS.escape)?CSS.escape(String(s)):String(s).replace(/(["\\\]])/g,"\\$1");
+const E=(k,v)=>S.edits[k]!==undefined?S.edits[k]:v;
+const CE=()=>editing?' contenteditable="true" spellcheck="false"':'';
+const F=(k,v)=>`<span class="ed" data-p="${k}"${CE()}>${esc(E(k,v))}</span>`;
+const DEL=(id,label)=>editing?`<button type="button" class="del" data-del="${id}" title="Borrar" aria-label="Borrar ${esc(label)}">×</button>`:"";
+const LINK=(k,u)=>editing?`<button type="button" class="del lnk" data-link="${k}" title="Cambiar enlace" aria-label="Cambiar enlace">🔗</button>`:"";
+const DEF={};
+function staticField(sel,key){const n=document.querySelector(sel);if(!n)return;if(DEF[key]===undefined)DEF[key]=n.textContent.trim();n.innerHTML=F(key,DEF[key])}
+function cust(d,kind){const c=S.custom[d]||{};return (c[kind]||[])}
+function addCust(d,kind,obj){const c=S.custom[d]||(S.custom[d]={});(c[kind]||(c[kind]=[])).push(obj);persist()}
+function visible(list){return list.filter(x=>!S.hidden[x.id])}
+
+function normUrl(u){u=String(u||"").trim();if(!u)return "";if(!/^https?:\/\//i.test(u)&&!u.startsWith("#"))u="https://"+u.replace(/^\/+/,"");return u}
+function nameFromUrl(u){
+  try{
+    const x=new URL(u), q=x.searchParams;
+    for(const k of ["query","ss","q","text"]){const v=q.get(k);if(v)return v}
+    const seg=x.pathname.split("/").filter(Boolean).pop();
+    if(seg&&!/^\d+$/.test(seg))return decodeURIComponent(seg).replace(/\.(html?|php|aspx)$/i,"").replace(/[-_+]+/g," ").replace(/^./,c=>c.toUpperCase());
+    return x.hostname.replace(/^www\./,"");
+  }catch(e){return u}
+}
+function emojiFor(u){
+  if(/google\.[a-z.]+\/maps/.test(u))return "📍";
+  if(/booking\.com|airbnb|hotel/.test(u))return "🛏️";
+  if(/bookaway|guatego|bus|shuttle/.test(u))return "🚐";
+  return "🔗";
+}
+
+/* ---------- listas por día ---------- */
+function planList(d){
+  const base=(d.plans||[]).map((p,i)=>({p,id:"d"+d.d+".p"+i}));
+  const mine=cust(d.d,"plans").map(p=>({p,id:p.id,mine:true}));
+  return visible(base.concat(mine));
+}
+function itemList(d){
+  const base=(d.items||[]).map((p,i)=>({p,id:"d"+d.d+".i"+i}));
+  const mine=cust(d.d,"items").map(p=>({p,id:p.id,mine:true}));
+  return visible(base.concat(mine));
+}
+function ideaList(d){
+  const base=(d.ideas||[]).map((t,i)=>({t,id:"d"+d.d+".n"+i}));
+  const mine=cust(d.d,"ideas").map(o=>({t:o.t,id:o.id,mine:true}));
+  return visible(base.concat(mine));
+}
+const dayList=()=>DAYS.filter(d=>!S.hidden["d"+d.d]);
+
+/* ---------- ruta y cuenta regresiva ---------- */
+function renderRoute(){
+  const nights=[["antigua",1,"Antigua"],["volcan",2,"Volcán"],["lago",4,"Atitlán"],["semuc",2,"Semuc"],["flores",3,"Flores"],["ciudad",1,"Guate"]];
+  const el=document.getElementById("route"); el.innerHTML="";
+  nights.forEach(([k,n,lab])=>{const s=document.createElement("span");s.style.flex=n;if(n<2)s.className="sm";s.style.backgroundColor=css("--"+k);s.textContent=E("region."+k,lab);s.title=R[k].name;el.appendChild(s)});
+}
+function renderCount(){
+  const start=new Date("2026-11-16T00:00:00-06:00"), days=Math.ceil((start-new Date())/86400000);
+  document.getElementById("countdown").innerHTML=
+    (days>0?`<div><b>${days}</b>días para irnos</div>`:`<div><b>¡Ya!</b>estamos de viaje</div>`)+
+    `<div><b>13</b>días de viaje</div><div><b>5</b>destinos</div>`;
+}
+
+/* ---------- tarjetas ---------- */
+const HEART=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.4-9.3-9.2C1.5 8 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.5 3.5 4.3 6.8-1.8 4.8-9.3 9.2-9.3 9.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+function planCard(x){
+  const p=x.p, id=x.id, on=!!S.favs[id], t=E(id+".t",p.t), u=E(id+".u",p.u);
+  return `<article class="plan ${on?"fav":""} ${x.mine?"mine":""}">
+    <div class="top"><span class="emo"${CE()} data-p="${id}.e">${esc(E(id+".e",p.e))}</span>
+      <span class="tag ${t}" ${editing?`data-cycle="${id}.t" data-cur="${t}" title="Cambiar tipo"`:""}>${TAG[t]||t}</span>${p.pick&&!editing?`<span class="pick">★ Top</span>`:""}
+      <button class="heart" data-id="${id}" aria-pressed="${on}" aria-label="${on?"Quitar de":"Guardar en"} favoritos">${HEART}</button>
+      ${LINK(id+".u",u)}${DEL(id,E(id+".n",p.n))}</div>
+    <h5><a href="${esc(u)}" target="_blank" rel="noopener">${F(id+".n",p.n)}</a></h5>
+    <p>${F(id+".d",p.d||"")}</p><span class="price">${F(id+".price",p.price||"")}</span></article>`;
+}
+function itemRow(x,d){
+  const it=x.p, id=x.id, u=E(id+".u",it.u), st=E(id+".s",it.s);
+  const jump=String(u).startsWith("#");
+  return `<div class="item"><span class="icon"${CE()} data-p="${id}.i">${esc(E(id+".i",it.i))}</span>
+    <div class="what"><a href="${esc(u)}" ${jump?"":'target="_blank" rel="noopener"'}>${F(id+".n",it.n)}</a><em>${F(id+".note",it.note||"")}</em></div>
+    <span class="price">${F(id+".price",it.price||"")}</span>
+    <span class="pill ${st}" ${editing?`data-cycle="${id}.s" data-cur="${st}" title="Cambiar estado"`:""}>${STATUS[st]||st}</span>${LINK(id+".u",u)}${DEL(id,E(id+".n",it.n))}</div>`;
+}
+function addForm(kind,d,label,ph){
+  return `<form class="addplan" data-add="${kind}" data-d="${d}">
+    ${kind==="ideas"?`<input name="t" placeholder="${ph}" required>`:
+      `<input name="u" placeholder="${ph}" required><input name="n" placeholder="Nombre (opcional)">`}
+    ${kind==="plans"?`<select name="t" aria-label="Tipo">${TORDER.map(k=>`<option value="${k}">${TAG[k]}</option>`).join("")}</select>`:""}
+    <button type="submit">${label}</button></form>`;
+}
+
+/* ---------- línea de tiempo ---------- */
+function renderTimeline(){
+  let html="", cur=null, days=dayList();
+  days.forEach((d,n)=>{
+    if(d.r!==cur){
+      if(cur) html+="</div></div>";
+      cur=d.r; const ds=days.filter(x=>x.r===cur).map(x=>x.d);
+      html+=`<div class="region" style="--c:${R[cur].c}"><h2>${F("region."+cur,R[cur].name)}</h2><p class="sub">${ds[0]}${ds.length>1?"–"+ds[ds.length-1]:""} de noviembre</p><div class="days">`;
+    }
+    const id="d"+d.d, items=itemList(d), plans=planList(d), ideas=ideaList(d);
+    html+=`<article class="day" id="${id}"><div class="date"><b>${d.d}</b><span>${d.w}</span><i class="knot"></i>${DEL(id,"el día "+d.d)}</div><div>
+      <h3>${F(id+".t",d.t)}${d.full?`<span class="full">Día completo</span>`:""}</h3><p>${F(id+".p",d.p)}</p>
+      ${items.length||editing?`<div class="items">${items.map(x=>itemRow(x,d)).join("")}${editing?addForm("items",d.d,"Agregar reserva","Pega el enlace de una reserva…"):""}</div>`:""}
+      ${plans.length||editing?`<div class="plans"><h4>${F(id+".pt",d.plansTitle||"Planes del día")}</h4><p>${F(id+".pn",d.plansNote||"Toquen el corazón en lo que les guste y aparece en Favoritos.")}</p>
+        <div class="grid">${plans.map(planCard).join("")}</div>${editing?addForm("plans",d.d,"Agregar plan","Pega un enlace…"):""}</div>`:""}
+      ${ideas.length||editing?`<ul class="ideas" aria-label="Notas">${ideas.map(x=>`<li>${F(x.id,x.t)}${DEL(x.id,x.t)}</li>`).join("")}</ul>${editing?addForm("ideas",d.d,"Agregar nota","Escribe una nota…"):""}`:""}
+    </div></article>`;
+  });
+  if(cur) html+="</div></div>";
+  document.getElementById("p1").innerHTML=html;
+}
+
+/* ---------- favoritos ---------- */
+function renderFavs(){
+  const days=dayList().map(d=>({d,list:planList(d).filter(x=>S.favs[x.id])})).filter(o=>o.list.length);
+  document.getElementById("favCount").textContent=days.reduce((n,o)=>n+o.list.length,0);
+  const p2=document.getElementById("p2");
+  if(!days.length){p2.innerHTML=`<div class="empty"><b>Aún no hay favoritos</b><p>En El viaje, toquen el corazón de los planes que les gusten y se arman el itinerario aquí.</p></div>`;return}
+  p2.innerHTML=days.map(o=>`<div class="favday" style="--c:${R[o.d.r].c}"><h3>${o.d.d} nov · ${esc(E("region."+o.d.r,R[o.d.r].name))}</h3><div class="grid">${o.list.map(planCard).join("")}</div></div>`).join("");
+}
+
+/* ---------- pendientes ---------- */
+const PRIORITY=[
+ {h:"Reservar ya",p:"Se llenan primero en noviembre o dejan noches sin cama.",keys:["Tour Acatenango con Tropicana","Alojamiento en el lago, 2 noches"]},
+ {h:"Reservar en las próximas 1–2 semanas",p:"Traslados largos con fecha fija.",keys:["Shuttle Antigua → Atitlán (GuateGo)","Shuttle Lanquín → Flores","Bus nocturno Flores → Ciudad de Guatemala","Traslado aeropuerto → Antigua"]},
+ {h:"Reservar unos días antes",p:"Tours que se pueden cerrar con 1–3 días de margen.",keys:["Tikal al amanecer","Tour Yaxhá al atardecer","Semuc Champey + cueva K'an Ba","Amanecer en la Nariz del Indio"]}
+];
+const TIPS=["Efectivo: el cajero de Lanquín falla seguido. Saquen ~Q3.000 antes de salir del lago el 22.",
+ "Acatenango: en el campamento baja a 0 °C o menos. Capas térmicas, nada de algodón.",
+ "Parapente y kayak en Atitlán: siempre en la mañana. Desde el mediodía el lago se pica.",
+ "Tikal al amanecer requiere guía; las entradas se compran en boletos.culturaguate.com.",
+ "El bus del 27 llega a Zona 1 de madrugada: Uber desde dentro de la terminal.",
+ "Si el vuelo de regreso es el 28 temprano, consideren volar Flores → Guate la tarde del 27 (~US$98–157)."];
+function renderPending(){
+  const all=dayList().flatMap(d=>itemList(d).map(x=>({...x.p,id:x.id,n:E(x.id+".n",x.p.n),note:E(x.id+".note",x.p.note||""),price:E(x.id+".price",x.p.price||""),u:E(x.id+".u",x.p.u),s:E(x.id+".s",x.p.s),d:d.d,w:d.w,r:d.r})));
+  const todo=all.filter(i=>i.s==="todo"), pay=all.filter(i=>i.s==="pay");
+  const left=todo.filter(i=>!S.done[i.id]).length+pay.filter(i=>!S.done[i.id]).length;
+  document.getElementById("pendCount").textContent=left||"✓";
+  const card=it=>`<label class="task ${S.done[it.id]?"done":""}" style="--c:${R[it.r].c}">
+      <input type="checkbox" data-k="${esc(it.id)}" ${S.done[it.id]?"checked":""} aria-label="Marcar ${esc(it.n)} como hecho">
+      <div class="d">${it.d}<small>${it.w} nov</small></div>
+      <div class="body"><h3>${esc(it.n)}</h3><p>${esc(it.note)}</p>
+        <a class="go" href="${esc(it.u)}" ${String(it.u).startsWith("#")?'data-jump="1"':'target="_blank" rel="noopener"'}>${String(it.u).startsWith("#")?"Ver opciones":"Abrir enlace"}</a></div>
+      <div class="price">${esc(it.price)}</div></label>`;
+  let html=`<div class="summary">
+    <div><b>${todo.length}</b><span>cosas por reservar</span></div>
+    <div><b>${pay.length}</b><span>reservas con pago pendiente</span></div>
+    <div><b>${left}</b><span>sin marcar como hechas</span></div></div>`;
+  const used=new Set();
+  PRIORITY.forEach(g=>{
+    const list=g.keys.map(k=>todo.find(t=>t.n===k)).filter(Boolean);
+    list.forEach(i=>used.add(i.id));
+    if(list.length) html+=`<div class="group"><h2>${g.h}</h2><p>${g.p}</p>${list.map(card).join("")}</div>`;
+  });
+  const rest=todo.filter(i=>!used.has(i.id));
+  if(rest.length) html+=`<div class="group"><h2>Lo demás por reservar</h2><p>Incluye lo que hayan agregado ustedes.</p>${rest.map(card).join("")}</div>`;
+  if(pay.length) html+=`<div class="group"><h2>Reservado, falta pagar</h2><p>Marcado como reservado pero no como pagado. Revisen si se paga al llegar.</p>${pay.map(card).join("")}</div>`;
+  html+=`<div class="tips"><h2>Para no olvidar</h2><ul>${TIPS.map((t,i)=>`<li>${F("tip."+i,t)}</li>`).join("")}</ul></div>`;
+  document.getElementById("p3").innerHTML=html;
+}
+
+/* ---------- render ---------- */
+function renderAll(){
+  staticField(".in h1","hero.t"); staticField(".in p","hero.p"); staticField("footer small","footer.s");
+  renderRoute(); renderCount(); renderTimeline(); renderFavs(); renderPending(); saveState();
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener("click",e=>{
+  if(editing){const a=e.target.closest("a"); if(a&&!e.target.closest("[data-del],[data-link]")){e.preventDefault(); const ed=a.querySelector("[data-p]"); if(ed)ed.focus(); return}}
+  const h=e.target.closest(".heart");
+  if(h){const id=h.dataset.id, sec=h.closest("section").id;
+    S.favs[id]=!S.favs[id]; if(!S.favs[id]) delete S.favs[id]; persist();
+    renderTimeline(); renderFavs();
+    const again=document.querySelector(`#${sec} .heart[data-id="${cssEsc(id)}"]`); if(again) again.focus(); return}
+
+  const del=e.target.closest("[data-del]");
+  if(del){e.preventDefault(); const id=del.dataset.del;
+    const mine=id.includes("x");
+    if(mine){ // borrar de verdad lo que agregaron ustedes
+      Object.keys(S.custom).forEach(d=>Object.keys(S.custom[d]||{}).forEach(k=>{S.custom[d][k]=S.custom[d][k].filter(o=>o.id!==id)}));
+    } else S.hidden[id]=1;
+    delete S.favs[id]; persist(); renderAll(); return}
+
+  const lk=e.target.closest("[data-link]");
+  if(lk){e.preventDefault(); const k=lk.dataset.link, cur=E(k,"");
+    const v=prompt("Enlace:",cur); if(v!==null){S.edits[k]=normUrl(v); persist(); renderAll()} return}
+
+  const cy=e.target.closest("[data-cycle]");
+  if(cy){e.preventDefault(); const k=cy.dataset.cycle, list=k.endsWith(".s")?ORDER:TORDER;
+    const cur=list.indexOf(cy.dataset.cur);
+    S.edits[k]=list[(cur+1+list.length)%list.length]; persist(); renderAll(); return}
+
+  const j=e.target.closest("[data-jump], .item a[href^='#']");
+  if(j){e.preventDefault(); selectTab("t1"); const t=document.querySelector(j.getAttribute("href")||"#d19"); if(t) t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}
+});
+
+document.addEventListener("submit",e=>{
+  const f=e.target.closest("[data-add]"); if(!f)return; e.preventDefault();
+  const kind=f.dataset.add, d=+f.dataset.d, id="d"+d+"."+kind[0]+"x"+Date.now().toString(36);
+  const val=k=>{const n=f.querySelector('[name="'+k+'"]');return n?n.value.trim():""};
+  if(kind==="ideas"){const t=val("t"); if(!t)return; addCust(d,"ideas",{id,t})}
+  else{
+    const u=normUrl(val("u")); if(!u)return;
+    const n=val("n")||nameFromUrl(u);
+    if(kind==="plans") addCust(d,"plans",{id,e:emojiFor(u),t:val("t")||"rom",n,d:"",price:"",u});
+    else addCust(d,"items",{id,i:emojiFor(u),n,note:"",s:"todo",price:"",u});
+  }
+  f.reset(); renderAll();
+  const el=document.querySelector(`[data-p="${cssEsc(id+(kind==="ideas"?"":".n"))}"]`);
+  if(el){if(el.scrollIntoView)el.scrollIntoView({block:"center",behavior:"smooth"}); if(editing) el.focus()}
+});
+
+document.addEventListener("change",e=>{
+  if(e.target.matches("#p3 input[type=checkbox]")){const k=e.target.dataset.k; S.done[k]=e.target.checked; if(!S.done[k])delete S.done[k]; persist(); renderPending()}
+});
+
+let typing=null;
+document.addEventListener("input",e=>{
+  const n=e.target.closest("[data-p][contenteditable]"); if(!n)return;
+  clearTimeout(typing);
+  typing=setTimeout(()=>{S.edits[n.dataset.p]=n.innerText.replace(/\s+$/,""); persist()},400);
+});
+document.addEventListener("blur",e=>{
+  const n=e.target&&e.target.closest&&e.target.closest("[data-p][contenteditable]"); if(!n)return;
+  clearTimeout(typing); S.edits[n.dataset.p]=n.innerText.replace(/\s+$/,""); persist();
+},true);
+document.addEventListener("keydown",e=>{
+  const n=e.target.closest&&e.target.closest("[data-p][contenteditable]");
+  if(n&&e.key==="Enter"&&!e.shiftKey){e.preventDefault(); n.blur()}
+  if((e.metaKey||e.ctrlKey)&&e.key==="s"){e.preventDefault(); push()}
+});
+
+/* ---------- pestañas y tema ---------- */
+const TABS=[["t1","p1"],["t2","p2"],["t3","p3"]];
+function selectTab(t){TABS.forEach(([tt,pp])=>{const on=tt===t;document.getElementById(tt).setAttribute("aria-selected",on);document.getElementById(pp).hidden=!on})}
+TABS.forEach(([t])=>document.getElementById(t).addEventListener("click",()=>selectTab(t)));
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const r=document.documentElement, cur=r.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  r.dataset.theme=cur==="dark"?"light":"dark"; renderRoute();
+});
+
+/* ---------- barra de guardado ---------- */
+const editBtn=document.getElementById("editBtn");
+editBtn.addEventListener("click",()=>{
+  editing=!editing;
+  document.body.classList.toggle("editing",editing);
+  editBtn.textContent=editing?"Listo":"Editar";
+  document.getElementById("editHint").hidden=!editing;
+  editBtn.setAttribute("aria-pressed",editing);
+  renderAll();
+});
+function saveFile(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelector("#guardado").textContent=JSON.stringify(S).replace(/</g,"\\u003c");
+  ["p1","p2","p3","route","countdown"].forEach(id=>{const n=clone.querySelector("#"+id); if(n) n.innerHTML=""});
+  clone.querySelectorAll("[contenteditable]").forEach(n=>n.removeAttribute("contenteditable"));
+  clone.querySelector("#saveState").textContent="Todo guardado";
+  clone.querySelector("#saveState").className="state";
+  clone.removeAttribute("data-theme");
+  const body=clone.querySelector("body"); if(body) body.classList.remove("editing");
+  const blob=new Blob(["<!DOCTYPE html>\n"+clone.outerHTML],{type:"text/html;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="Guatemala.html";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  saveState();
+}
+document.getElementById("downloadBtn").addEventListener("click",saveFile);
+document.getElementById("saveBtn").addEventListener("click",()=>push());
+document.getElementById("restoreBtn").addEventListener("click",()=>{S.hidden={}; persist(); renderAll()});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+  if(!confirm("¿Borrar todos tus cambios y volver al plan original?"))return;
+  S=blank(); try{localStorage.removeItem(KEY)}catch(e){}
+  dirty=true; renderAll(); push();
+});
+window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue=""}});
+window.addEventListener("focus",pull);
+setInterval(pull,60000);
+
+renderAll();
+bootstrap();
+</script>
+</body>
+</html>

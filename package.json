@@ -1,0 +1,15 @@
+{
+  "name": "guatemala",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plan del viaje a Guatemala, 16–28 de noviembre de 2026. Editable y guardado en la nube.",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod",
+    "db:setup": "node scripts/setup-db.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  },
+  "type": "module"
+}
