@@ -73,15 +73,9 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(-
 .route span + span{border-left:2px solid var(--bg)}
 .route-legend{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem}
 
-/* ---------- Tabs ---------- */
-.tabs{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;gap:6px;padding:calc(env(safe-area-inset-top,0px) + 10px) 0 10px;margin-top:20px;border-bottom:1px solid var(--line);overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
+/* ---------- Barra superior ---------- */
+.tabs{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;gap:6px;padding:calc(env(safe-area-inset-top,0px) + 10px) 0 10px;margin-top:20px;border-bottom:1px solid var(--line)}
 .tabs button{font:inherit;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:0 15px;min-height:44px;border-radius:999px;cursor:pointer;white-space:nowrap;flex:none}
-.tabs button[aria-selected="true"]{background:var(--wine);border-color:var(--wine);color:#FFF1F5}
-:root[data-theme="dark"] .tabs button[aria-selected="true"]{background:var(--thread);border-color:var(--thread);color:#2B0A18}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{background:var(--thread);border-color:var(--thread);color:#2B0A18}}
-.tabs .n{display:inline-block;margin-left:6px;background:var(--thread);color:#fff;border-radius:999px;font-size:.74rem;padding:0 7px}
-.tabs button[aria-selected="true"] .n{background:rgba(255,255,255,.25)}
 .tabs .theme{margin-left:auto;padding:0 14px;min-width:44px}
 
 /* ---------- Timeline with red thread ---------- */
@@ -144,32 +138,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(-
 .plan .price{margin-top:auto;padding-top:4px;color:var(--ink);font-weight:600;font-size:.84rem;white-space:normal;overflow-wrap:anywhere}
 .pick{font-size:.72rem;font-weight:700;color:#fff;background:var(--thread);border-radius:999px;padding:2px 9px;white-space:nowrap}
 
-/* ---------- Favorites view ---------- */
-.empty{margin-top:34px;background:var(--tint);border-radius:18px;padding:26px;text-align:center}
-.empty p{margin:6px 0 0;color:var(--muted)}
-.empty b{font-family:var(--serif);font-style:italic;font-size:1.8rem;font-weight:600}
-.favday{margin-top:28px}
-.favday h3{margin:0 0 10px;font-family:var(--serif);font-weight:600;font-size:1.6rem;color:var(--c)}
-
-/* ---------- Pending view ---------- */
-.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin-top:28px}
-.summary div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.summary b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,9vw,2.5rem);line-height:1}
-.summary span{color:var(--muted);font-size:.88rem}
-.group{margin-top:36px}
-.group h2{font-family:var(--serif);font-weight:600;font-size:1.8rem;margin:0 0 2px}
-.group > p{margin:0 0 14px;color:var(--muted)}
-.task{display:grid;grid-template-columns:28px 62px minmax(0,1fr) auto;gap:12px;align-items:start;padding:14px;border:1px solid var(--line);border-left:5px solid var(--c);background:var(--surface);border-radius:12px;margin-bottom:10px;cursor:pointer}
-.task input{width:22px;height:22px;margin-top:3px;accent-color:var(--thread);cursor:pointer}
-.task .d{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1;color:var(--c)}
-.task .d small{display:block;font-family:var(--sans);font-size:.74rem;font-weight:400;color:var(--muted);margin-top:3px}
-.task .body{min-width:0}
-.task h3{margin:0;font-size:1.02rem;overflow-wrap:anywhere}
-.task p{margin:4px 0 0;color:var(--muted);font-size:.9rem;max-width:60ch}
-.task a.go{display:inline-block;margin-top:8px;font-weight:600;font-size:.86rem;background:var(--wine);color:#FFF1F5;text-decoration:none;padding:6px 13px;border-radius:999px}
-.task.done{opacity:.55}
-.task.done h3{text-decoration:line-through}
-.task .price{text-align:right}
+/* ---------- Para no olvidar ---------- */
 .tips{margin-top:36px;background:var(--tint);border-radius:18px;padding:18px 20px}
 .tips h2{margin:0 0 8px;font-family:var(--serif);font-weight:600;font-size:1.6rem}
 .tips ul{margin:0;padding-left:20px;color:var(--muted)}
@@ -185,7 +154,6 @@ footer small{display:block;margin-top:12px;color:var(--muted)}
   .count b{font-size:2.1rem}
   .tabs{gap:5px}
   .tabs button{font-size:.82rem;padding:0 10px}
-  .tabs .n{margin-left:4px;font-size:.68rem;padding:0 5px}
   .tabs .theme{padding:0 9px;min-width:38px;font-size:1rem}
   .route{height:34px;margin-top:24px}
   .route span{font-size:.66rem}
@@ -198,17 +166,12 @@ footer small{display:block;margin-top:12px;color:var(--muted)}
   .item .icon{margin-top:1px}
   .item .price{align-self:center}
   .item .what{flex:1 1 150px}
-  .task{grid-template-columns:26px 1fr;padding:13px 12px}
-  .task .d{grid-column:2}
-  .task .body{grid-column:1 / -1}
-  .task .price{grid-column:1 / -1;text-align:left}
   .plans{margin-left:-8px;margin-right:-8px;padding:14px 12px;border-radius:16px}
   .plans h4{font-size:1.3rem}
   .grid{grid-template-columns:minmax(0,1fr)}
   .plan .top{flex-wrap:wrap;gap:6px}
   .tips{padding:16px 16px}
   .tips ul{padding-left:18px}
-  .empty{padding:22px 18px}
   .addplan input,.addplan select,.addplan button{flex:1 1 100%}
   /* la barra se vuelve una barra de abajo, pegada al borde y sobre el home indicator */
   .savebar{margin:24px calc(var(--gut) * -1) 0;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom,0px));
@@ -274,7 +237,6 @@ body.editing .fab{display:none}
   .heart{width:44px;height:44px}
   .heart svg{width:24px;height:24px}
   .ideas li{font-size:.88rem;padding:5px 13px}
-  .task a.go{padding:11px 17px}
   .item .what a,.plan h5 a{text-underline-offset:4px}
   .tabs button,.savebar button,.addplan button{min-height:44px}
 }
@@ -340,16 +302,11 @@ body.editing .fab{display:none}
   <div class="route" id="route" aria-label="Ruta del viaje por noches"></div>
   <div class="route-legend"><span>16 nov</span><span>28 nov</span></div>
 
-  <nav class="tabs" role="tablist">
-    <button role="tab" id="t1" aria-selected="true" aria-controls="p1">El viaje</button>
-    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Favoritos <span class="n" id="favCount">0</span></button>
-    <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Lo que falta <span class="n" id="pendCount"></span></button>
+  <nav class="tabs">
     <button class="theme" id="themeBtn" aria-label="Cambiar entre modo claro y oscuro">◐</button>
   </nav>
 
-  <section id="p1" role="tabpanel" aria-labelledby="t1"></section>
-  <section id="p2" role="tabpanel" aria-labelledby="t2" hidden></section>
-  <section id="p3" role="tabpanel" aria-labelledby="t3" hidden></section>
+  <section id="p1"></section>
 
   <div class="savebar" id="savebar">
     <p class="hint" id="editHint" hidden>Toca el texto para cambiarlo · <b>×</b> borra · <b>🔗</b> cambia el enlace</p>
@@ -519,21 +476,20 @@ const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim
 /* ---------- estado guardado ---------- */
 const KEY="gt-guatemala-v2";
 const SAVED=(()=>{try{return JSON.parse(document.getElementById("guardado").textContent||"{}")}catch(e){return{}}})();
-function blank(){return{edits:{},hidden:{},custom:{},favs:{},done:{}}}
+function blank(){return{edits:{},hidden:{},custom:{},favs:{}}}
 let S=(function(){
   let ls=null; try{ls=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){}
   const src=ls||SAVED||{}, s=blank();
-  ["edits","hidden","custom","favs","done"].forEach(k=>{if(src[k]&&typeof src[k]==="object")s[k]=src[k]});
-  if(!ls){ // migrar favoritos y pendientes de la versión anterior
+  ["edits","hidden","custom","favs"].forEach(k=>{if(src[k]&&typeof src[k]==="object")s[k]=src[k]});
+  if(!ls){ // migrar los favoritos de la versión anterior
     try{Object.assign(s.favs,JSON.parse(localStorage.getItem("gt-favs-v1")||"{}"))}catch(e){}
-    try{Object.assign(s.done,JSON.parse(localStorage.getItem("gt-viaje-hecho-v1")||"{}"))}catch(e){}
   }
   return s;
 })();
 let dirty=false, editing=false, rev=0, cloud="init", pushTimer=null, lastSync=null;
 const API="/api/state";
 let pin=(()=>{try{return localStorage.getItem("gt-pin")||""}catch(e){return ""}})();
-function normalize(o){const s=blank(); if(o&&typeof o==="object") ["edits","hidden","custom","favs","done"].forEach(k=>{if(o[k]&&typeof o[k]==="object")s[k]=o[k]}); return s}
+function normalize(o){const s=blank(); if(o&&typeof o==="object") ["edits","hidden","custom","favs"].forEach(k=>{if(o[k]&&typeof o[k]==="object")s[k]=o[k]}); return s}
 
 function persist(markDirty){
   try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
@@ -711,6 +667,13 @@ function addForm(kind,d,label,ph){
     <button type="submit">${label}</button></form>`;
 }
 
+const TIPS=["Efectivo: el cajero de Lanquín falla seguido. Saquen ~Q3.000 antes de salir del lago el 22.",
+ "Acatenango: en el campamento baja a 0 °C o menos. Capas térmicas, nada de algodón.",
+ "Parapente y kayak en Atitlán: siempre en la mañana. Desde el mediodía el lago se pica.",
+ "Tikal al amanecer requiere guía; las entradas se compran en boletos.culturaguate.com.",
+ "El bus del 27 llega a Zona 1 de madrugada: Uber desde dentro de la terminal.",
+ "Si el vuelo de regreso es el 28 temprano, consideren volar Flores → Guate la tarde del 27 (~US$98–157)."];
+
 /* ---------- línea de tiempo ---------- */
 function renderTimeline(){
   let html="", cur=null, days=dayList();
@@ -724,78 +687,30 @@ function renderTimeline(){
     html+=`<article class="day" id="${id}"><div class="date"><b>${d.d}</b><span>${d.w}</span><i class="knot"></i>${DEL(id,"el día "+d.d)}</div><div>
       <h3>${F(id+".t",d.t)}${d.full?`<span class="full">Día completo</span>`:""}</h3><p>${F(id+".p",d.p)}</p>
       ${items.length||editing?`<div class="items">${items.map(x=>itemRow(x,d)).join("")}${editing?addForm("items",d.d,"Agregar reserva","Pega el enlace de una reserva…"):""}</div>`:""}
-      ${plans.length||editing?`<div class="plans"><h4>${F(id+".pt",d.plansTitle||"Planes del día")}</h4><p>${F(id+".pn",d.plansNote||"Toquen el corazón en lo que les guste y aparece en Favoritos.")}</p>
+      ${plans.length||editing?`<div class="plans"><h4>${F(id+".pt",d.plansTitle||"Planes del día")}</h4><p>${F(id+".pn",d.plansNote||"Toquen el corazón en lo que les guste para marcarlo.")}</p>
         <div class="grid">${plans.map(planCard).join("")}</div>${editing?addForm("plans",d.d,"Agregar plan","Pega un enlace…"):""}</div>`:""}
       ${ideas.length||editing?`<ul class="ideas" aria-label="Notas">${ideas.map(x=>`<li>${F(x.id,x.t)}${DEL(x.id,x.t)}</li>`).join("")}</ul>${editing?addForm("ideas",d.d,"Agregar nota","Escribe una nota…"):""}`:""}
     </div></article>`;
   });
   if(cur) html+="</div></div>";
-  document.getElementById("p1").innerHTML=html;
-}
-
-/* ---------- favoritos ---------- */
-function renderFavs(){
-  const days=dayList().map(d=>({d,list:planList(d).filter(x=>S.favs[x.id])})).filter(o=>o.list.length);
-  document.getElementById("favCount").textContent=days.reduce((n,o)=>n+o.list.length,0);
-  const p2=document.getElementById("p2");
-  if(!days.length){p2.innerHTML=`<div class="empty"><b>Aún no hay favoritos</b><p>En El viaje, toquen el corazón de los planes que les gusten y se arman el itinerario aquí.</p></div>`;return}
-  p2.innerHTML=days.map(o=>`<div class="favday" style="--c:${R[o.d.r].c}"><h3>${o.d.d} nov · ${esc(E("region."+o.d.r,R[o.d.r].name))}</h3><div class="grid">${o.list.map(planCard).join("")}</div></div>`).join("");
-}
-
-/* ---------- pendientes ---------- */
-const PRIORITY=[
- {h:"Reservar ya",p:"Se llenan primero en noviembre o dejan noches sin cama.",keys:["Tour Acatenango con Tropicana","Alojamiento en el lago, 2 noches"]},
- {h:"Reservar en las próximas 1–2 semanas",p:"Traslados largos con fecha fija.",keys:["Shuttle Antigua → Atitlán (GuateGo)","Shuttle Lanquín → Flores","Bus nocturno Flores → Ciudad de Guatemala","Traslado aeropuerto → Antigua"]},
- {h:"Reservar unos días antes",p:"Tours que se pueden cerrar con 1–3 días de margen.",keys:["Tikal al amanecer","Tour Yaxhá al atardecer","Semuc Champey + cueva K'an Ba","Amanecer en la Nariz del Indio"]}
-];
-const TIPS=["Efectivo: el cajero de Lanquín falla seguido. Saquen ~Q3.000 antes de salir del lago el 22.",
- "Acatenango: en el campamento baja a 0 °C o menos. Capas térmicas, nada de algodón.",
- "Parapente y kayak en Atitlán: siempre en la mañana. Desde el mediodía el lago se pica.",
- "Tikal al amanecer requiere guía; las entradas se compran en boletos.culturaguate.com.",
- "El bus del 27 llega a Zona 1 de madrugada: Uber desde dentro de la terminal.",
- "Si el vuelo de regreso es el 28 temprano, consideren volar Flores → Guate la tarde del 27 (~US$98–157)."];
-function renderPending(){
-  const all=dayList().flatMap(d=>itemList(d).map(x=>({...x.p,id:x.id,n:E(x.id+".n",x.p.n),note:E(x.id+".note",x.p.note||""),price:E(x.id+".price",x.p.price||""),u:E(x.id+".u",x.p.u),s:E(x.id+".s",x.p.s),d:d.d,w:d.w,r:d.r})));
-  const todo=all.filter(i=>i.s==="todo"), pay=all.filter(i=>i.s==="pay");
-  const left=todo.filter(i=>!S.done[i.id]).length+pay.filter(i=>!S.done[i.id]).length;
-  document.getElementById("pendCount").textContent=left||"✓";
-  const card=it=>`<label class="task ${S.done[it.id]?"done":""}" style="--c:${R[it.r].c}">
-      <input type="checkbox" data-k="${esc(it.id)}" ${S.done[it.id]?"checked":""} aria-label="Marcar ${esc(it.n)} como hecho">
-      <div class="d">${it.d}<small>${it.w} nov</small></div>
-      <div class="body"><h3>${esc(it.n)}</h3><p>${esc(it.note)}</p>
-        <a class="go" href="${esc(it.u)}" ${String(it.u).startsWith("#")?'data-jump="1"':'target="_blank" rel="noopener"'}>${String(it.u).startsWith("#")?"Ver opciones":"Abrir enlace"}</a></div>
-      <div class="price">${esc(it.price)}</div></label>`;
-  let html=`<div class="summary">
-    <div><b>${todo.length}</b><span>cosas por reservar</span></div>
-    <div><b>${pay.length}</b><span>reservas con pago pendiente</span></div>
-    <div><b>${left}</b><span>sin marcar como hechas</span></div></div>`;
-  const used=new Set();
-  PRIORITY.forEach(g=>{
-    const list=g.keys.map(k=>todo.find(t=>t.n===k)).filter(Boolean);
-    list.forEach(i=>used.add(i.id));
-    if(list.length) html+=`<div class="group"><h2>${g.h}</h2><p>${g.p}</p>${list.map(card).join("")}</div>`;
-  });
-  const rest=todo.filter(i=>!used.has(i.id));
-  if(rest.length) html+=`<div class="group"><h2>Lo demás por reservar</h2><p>Incluye lo que hayan agregado ustedes.</p>${rest.map(card).join("")}</div>`;
-  if(pay.length) html+=`<div class="group"><h2>Reservado, falta pagar</h2><p>Marcado como reservado pero no como pagado. Revisen si se paga al llegar.</p>${pay.map(card).join("")}</div>`;
   html+=`<div class="tips"><h2>Para no olvidar</h2><ul>${TIPS.map((t,i)=>`<li>${F("tip."+i,t)}</li>`).join("")}</ul></div>`;
-  document.getElementById("p3").innerHTML=html;
+  document.getElementById("p1").innerHTML=html;
 }
 
 /* ---------- render ---------- */
 function renderAll(){
   staticField(".in h1","hero.t"); staticField(".in p","hero.p"); staticField("footer small","footer.s");
-  renderRoute(); renderCount(); renderTimeline(); renderFavs(); renderPending(); saveState();
+  renderRoute(); renderCount(); renderTimeline(); saveState();
 }
 
 /* ---------- eventos ---------- */
 document.addEventListener("click",e=>{
   if(editing){const a=e.target.closest("a"); if(a&&!e.target.closest("[data-del],[data-link]")){e.preventDefault(); const ed=a.querySelector("[data-p]"); if(ed)ed.focus(); return}}
   const h=e.target.closest(".heart");
-  if(h){const id=h.dataset.id, sec=h.closest("section").id;
+  if(h){const id=h.dataset.id;
     S.favs[id]=!S.favs[id]; if(!S.favs[id]) delete S.favs[id]; persist();
-    renderTimeline(); renderFavs();
-    const again=document.querySelector(`#${sec} .heart[data-id="${cssEsc(id)}"]`); if(again) again.focus(); return}
+    renderTimeline();
+    const again=document.querySelector(`.heart[data-id="${cssEsc(id)}"]`); if(again) again.focus(); return}
 
   const del=e.target.closest("[data-del]");
   if(del){e.preventDefault(); const id=del.dataset.del;
@@ -814,8 +729,8 @@ document.addEventListener("click",e=>{
     const cur=list.indexOf(cy.dataset.cur);
     S.edits[k]=list[(cur+1+list.length)%list.length]; persist(); renderAll(); return}
 
-  const j=e.target.closest("[data-jump], .item a[href^='#']");
-  if(j){e.preventDefault(); selectTab("t1"); const t=document.querySelector(j.getAttribute("href")||"#d19"); if(t) t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}
+  const j=e.target.closest(".item a[href^='#']");
+  if(j){e.preventDefault(); const t=document.querySelector(j.getAttribute("href")||"#d19"); if(t) t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}
 });
 
 document.addEventListener("submit",e=>{
@@ -834,10 +749,6 @@ document.addEventListener("submit",e=>{
   if(el){if(el.scrollIntoView)el.scrollIntoView({block:"center",behavior:"smooth"}); if(editing) el.focus()}
 });
 
-document.addEventListener("change",e=>{
-  if(e.target.matches("#p3 input[type=checkbox]")){const k=e.target.dataset.k; S.done[k]=e.target.checked; if(!S.done[k])delete S.done[k]; persist(); renderPending()}
-});
-
 let typing=null;
 document.addEventListener("input",e=>{
   const n=e.target.closest("[data-p][contenteditable]"); if(!n)return;
@@ -854,10 +765,7 @@ document.addEventListener("keydown",e=>{
   if((e.metaKey||e.ctrlKey)&&e.key==="s"){e.preventDefault(); push()}
 });
 
-/* ---------- pestañas y tema ---------- */
-const TABS=[["t1","p1"],["t2","p2"],["t3","p3"]];
-function selectTab(t){TABS.forEach(([tt,pp])=>{const on=tt===t;document.getElementById(tt).setAttribute("aria-selected",on);document.getElementById(pp).hidden=!on})}
-TABS.forEach(([t])=>document.getElementById(t).addEventListener("click",()=>selectTab(t)));
+/* ---------- tema ---------- */
 document.getElementById("themeBtn").addEventListener("click",()=>{
   const r=document.documentElement, cur=r.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
   r.dataset.theme=cur==="dark"?"light":"dark"; renderRoute();
@@ -877,7 +785,7 @@ document.getElementById("doneBtn").addEventListener("click",toggleEdit);
 function saveFile(){
   const clone=document.documentElement.cloneNode(true);
   clone.querySelector("#guardado").textContent=JSON.stringify(S).replace(/</g,"\\u003c");
-  ["p1","p2","p3","route","countdown"].forEach(id=>{const n=clone.querySelector("#"+id); if(n) n.innerHTML=""});
+  ["p1","route","countdown"].forEach(id=>{const n=clone.querySelector("#"+id); if(n) n.innerHTML=""});
   clone.querySelectorAll("[contenteditable]").forEach(n=>n.removeAttribute("contenteditable"));
   clone.querySelector("#saveState").textContent="Todo guardado";
   clone.querySelector("#saveState").className="state";
